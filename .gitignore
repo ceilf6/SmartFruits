@@ -28,8 +28,10 @@
 *.data
 *.json
 *.cfg
+# 忽略所有PDF文件，除了smartfruit系统说明文档
 *.pdf
 *.PDF
+!基于单片机、大数据和视觉识别的smartfruit智能系统.pdf
 **/yolov5s.pt
 **/models/
 **/runs/
