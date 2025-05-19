@@ -87,8 +87,15 @@ weights/
 *.lnp
 *.htm
 *.iex
+*.uvguix.*
+*.uvoptx
+*.uvprojx
+*.sct
+*.scvd
+Target_1.cpdsc
 JLinkLog.txt
 JLinkSettings.ini
+DebugConfig/
 
 # STM32相关文件和库
 # 排除 STM32 库文件但保留用户代码
@@ -118,6 +125,7 @@ OBJ/
 *.swo
 .DS_Store
 Thumbs.db
+._*
 
 # 日志文件
 *.log
