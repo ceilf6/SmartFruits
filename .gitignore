@@ -91,10 +91,7 @@ JLinkLog.txt
 JLinkSettings.ini
 
 # STM32相关文件和库
-*stm32*
-*STM32*
-*FWLIB*
-*CORE*
+# 排除 STM32 库文件但保留用户代码
 */FWLIB/*
 */CORE/*
 重量模块/重量模块烧录代码/CORE/
@@ -103,6 +100,16 @@ JLinkSettings.ini
 视觉模块OV7670/0ERROR-5.19/视觉模块烧录代码/FWLIB/
 OBJ/
 */OBJ/*
+
+# 但不要忽略这些用户代码文件
+!重量模块/重量模块烧录代码/USER/*.c
+!重量模块/重量模块烧录代码/USER/*.h
+!视觉模块OV7670/0ERROR-5.19/视觉模块烧录代码/USER/*.c
+!视觉模块OV7670/0ERROR-5.19/视觉模块烧录代码/USER/*.h
+!重量模块/重量模块烧录代码/SYSTEM/*.c
+!重量模块/重量模块烧录代码/SYSTEM/*.h
+!视觉模块OV7670/0ERROR-5.19/视觉模块烧录代码/SYSTEM/*.c
+!视觉模块OV7670/0ERROR-5.19/视觉模块烧录代码/SYSTEM/*.h
 
 # 编辑器/IDE相关
 .idea
