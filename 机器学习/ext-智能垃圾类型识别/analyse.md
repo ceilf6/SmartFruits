@@ -271,3 +271,62 @@ Fichiers clés :
 - **Modèle** : essayer EfficientNet-B0, ajouter Dropout, renforcer les augmentations (RandAugment/MixUp/CutMix).
 - **Entraînement** : warmup du LR, geler les premières couches puis dégeler progressivement, validation croisée K-fold.
 - **Montée en complexité** : si une image contient plusieurs déchets ou si la localisation est nécessaire, utiliser la détection (YOLO) ou la segmentation.
+
+---
+
+## 9. Analyse stratégique (SWOT)
+
+### 9.1 Forces (Strengths)
+- **Tri plus fiable et mesurable** : l’IA aide à réduire les erreurs humaines, et le système produit des données (taux d’erreur, volumes) utiles pour piloter les actions de tri.
+- **Expérience utilisateur** : feedback immédiat (catégorie, consignes) qui rend le tri plus simple, surtout dans des lieux publics.
+- **Architecture modulaire** : capteurs (caméra, éventuellement poids), modèle ML, interface et stockage peuvent évoluer indépendamment (mise à jour du modèle sans changer la mécanique).
+
+### 9.2 Faiblesses (Weaknesses)
+- **Sensibilité aux conditions réelles** : éclairage, angle, saleté sur l’objectif, objets partiellement visibles → dégradation de la précision (dérive de domaine).
+- **Dépendance aux données** : qualité/équilibre des classes, définition des catégories et cohérence d’annotation influencent fortement les résultats.
+- **Coût et maintenance** : calibration, nettoyage, remplacement capteurs, supervision (pannes, réseau, énergie), ce qui peut alourdir l’exploitation.
+
+### 9.3 Opportunités (Opportunities)
+- **Politiques publiques et “smart city”** : subventions, appels à projets, objectifs de réduction/valorisation des déchets favorisent l’adoption.
+- **Partenariats** : collectivités, écoles, campus, centres commerciaux et sociétés de gestion des déchets peuvent fournir des données et des sites pilotes.
+- **Amélioration continue** : collecte de nouveaux exemples (avec consentement), apprentissage incrémental, extension à plus de catégories ou à la détection d’objets.
+
+### 9.4 Menaces (Threats)
+- **Changements réglementaires** : nouvelles règles de tri (catégories fusionnées/séparées) peuvent rendre un modèle obsolète.
+- **Concurrence et standards** : solutions commerciales existantes, exigences d’interopérabilité, marchés publics avec contraintes fortes.
+- **Acceptation et confiance** : si les erreurs sont trop visibles, l’utilisateur perd confiance et contourne le système (risque de rejet).
+
+---
+
+## 10. Analyse PESTEL (détaillée)
+
+### 10.1 Politique (P)
+- **Priorités publiques** : les municipalités poussent le tri sélectif et la réduction des déchets résiduels ; un “smart bin” s’aligne avec ces objectifs (campagnes, expérimentations).
+- **Financements et achats publics** : subventions et marchés publics peuvent accélérer le déploiement, mais imposent des procédures (cahier des charges, preuves de performance, maintenance).
+- **Gestion territoriale** : les règles de tri varient selon les villes/communautés ; le système doit être paramétrable (classes, consignes, signalétique) par territoire.
+
+### 10.2 Économique (E)
+- **Coût total de possession (TCO)** : au-delà du matériel, il faut compter l’installation, la maintenance, la connectivité, les mises à jour et la supervision.
+- **Retour sur investissement** : gains potentiels via baisse de contamination des flux (meilleure valorisation), réduction d’erreurs, optimisation des tournées (si couplé à du suivi de remplissage).
+- **Scalabilité** : une solution trop chère ou trop complexe à entretenir limite l’extension ; la standardisation des pièces et un modèle léger (MobileNet) peuvent réduire les coûts.
+
+### 10.3 Social (S)
+- **Comportements et pédagogie** : l’acceptation dépend de la clarté des consignes, de la vitesse de réponse et de l’ergonomie ; le feedback peut éduquer et améliorer les habitudes.
+- **Inclusion** : interface simple, multimodale (texte/icônes/son) et adaptée à des publics variés (enfants, touristes, personnes âgées).
+- **Perception de la surveillance** : une caméra peut susciter des inquiétudes ; il faut expliquer clairement l’usage (tri), limiter la collecte et rassurer sur la confidentialité.
+
+### 10.4 Technologique (T)
+- **Robustesse du modèle** : gérer la dérive (nouvelles marques/emballages), l’occlusion, les déchets sales ; prévoir un processus de réentraînement et de validation.
+- **Contraintes embarquées** : latence, énergie, coût ; choix d’un backbone léger, quantification, ou exécution sur un edge device selon le budget.
+- **Qualité capteurs & pipeline** : illumination contrôlée, positionnement caméra, nettoyage, détection d’anomalies (objectif bouché), et journalisation pour diagnostiquer les erreurs.
+
+### 10.5 Environnemental (E)
+- **Impact positif** : meilleure qualité du tri → plus de recyclage/valorisation, moins de déchets résiduels, réduction des émissions liées à l’incinération/enfouissement.
+- **Impact du matériel** : production et fin de vie des composants (caméra, électronique) ; concevoir pour être réparable, durable, et recycler les pièces.
+- **Optimisation opérationnelle** : si le système fournit des données (volumes, remplissage), il peut réduire les déplacements et optimiser la logistique des collectes.
+
+### 10.6 Légal (L)
+- **Protection des données** : si des images sont stockées ou transmises, il faut des mesures de conformité (minimisation, anonymisation, durée de conservation, accès).
+- **Sécurité et conformité** : normes électriques, sécurité mécanique, résistance au vandalisme, et signalisation claire (usage, responsabilité).
+- **Responsabilité en cas d’erreur** : mauvais tri induit par le système ; prévoir des avertissements, une procédure de correction, et un suivi qualité (tests, audits).
+
